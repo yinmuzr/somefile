@@ -1,0 +1,248 @@
+javascript课程大纲
+
+课程介绍：对javascript基础进行简单介绍，对项目中会用到的js知识和遇到的问题有所偏重。
+讲课方式：txt+demo
+适合人群：0基础
+课程目的：（1）了解javascript语言基础；
+          （2）能够使用javascript辅助前端开发，对以后项目中常见的问题有所了解。
+
+教学内容：
+     http://www.w3school.com.cn/js/index.asp
+
+
+
+
+第一部分：js基础
+
+
+
+1、JavaScript 简介
+  JavaScript 是脚本语言。JavaScript 代码可插入 HTML 页面，可由所有的现代浏览器执行。
+2、JavaScript 引入
+  （1）HTML 中的脚本必须位于 <script> 与 </script> 标签之间。脚本可被放置在 HTML 页面的 <body> 和 <head> 部分中。
+  （2）放在文件扩展名是 .js的外部 JavaScript 文件中。
+3、JavaScript 输出
+   使用 document.getElementById(id) 方法，访问 HTML 元素。
+   使用 document.write() 向文档输出写内容。
+4、JavaScript 数据类型  （typeof）
+    字符串、数字、布尔、数组、对象、Null、Undefined
+    var pi=3.14;
+    var name="Bill Gates";
+    var name="Gates", age=56, job="CEO";
+    var cars=new Array();cars[0]="audi";
+    var cars=new Array("Audi","BMW","Volvo");
+    var cars=["Audi","BMW","Volvo"];
+
+    对象的声明：
+          var person={firstname:"Bill", lastname:"Gates", id:5566};
+          var person={
+             firstname : "Bill",
+             lastname  : "Gates",
+             id        :  5566
+          };
+    对象的寻址：
+          name=person.lastname;
+          name=person["lastname"];
+
+    Undefined 这个值表示变量不含有值。
+    null 表示值为空。
+
+5、JavaScript 运算符
+（1）算术运算符
+       + 加 	- 减 	 * 乘 	 / 除 	 % 求余数    ++ 累加     -- 递减
+（2）赋值运算符
+       = 	+= 	-= 	*= 	/= 	%=
+（3） 用于字符串的 + 运算符
+    x="5"+5    parseint（）
+（4）比较运算符
+     == 	等于 	
+     === 	全等（值和类型） 	
+     != 	不等于 
+      > 	大于 	
+      < 	小于 	
+      >= 	大于或等于 	
+      <= 	小于或等于
+（5）逻辑运算符、
+      && and 	    || or 	! not
+6、JavaScript条件语句
+    if 语句 - 只有当指定条件为 true 时，使用该语句来执行代码
+    if...else 语句 - 当条件为 true 时执行代码，当条件为 false 时执行其他代码
+    if...else if....else 语句 - 使用该语句来选择多个代码块之一来执行
+    switch 语句 - 使用该语句来选择多个代码块之一来执行 
+7、JavaScript循环语句
+    for - 循环代码块一定的次数
+    for/in - 循环遍历对象的属性
+    while - 当指定的条件为 true 时循环指定的代码块
+    do/while - 同样当指定的条件为 true 时循环指定的代码块
+
+   （break 语句用于跳出循环。continue 用于跳过循环中的一个迭代。）
+8、JavaScript 错误
+    try 语句测试代码块的错误。
+    catch 语句处理错误。
+    throw 语句创建自定义错误。
+9、JavaScript 表单验证
+    可用来在数据被送往服务器前对 HTML 表单中的这些输入数据进行验证。
+
+
+
+
+第二部分：js HTML Dom ——文档对象模型（Document Object Model）。
+
+
+
+1、当网页被加载时，浏览器会创建页面的dom。
+	<html> 根元素
+	<head> 
+  	 <title>
+  	 </title>
+	</head>
+	<body>
+	    <a></a>
+	    <h1></h1>
+ 	   ......
+	</body>
+	</html>
+	JavaScript 能够改变页面中的所有 HTML 元素，属性，样式，事件。
+2、查找html元素
+（1）通过id     document.getElementById;
+（2）通过标签名  document.getElementsByTagName
+（3）通过类名   document.getElementsByClassName
+3、改变html元素
+（1）改变输出流   document.write() 
+（2）改变内容   document.getElementById(id).innerHTML=new HTML
+（3）改变属性  document.getElementById(id).attribute=new value
+（4）改变样式   document.getElementById(id).style.property=new style
+4、响应事件
+	基本事件类型 onclick  dbclick onchange  onmouseover  onmouseout onfocus onblur onload onmousedown onmouseup...
+（1）利用事件属性添加  <button onclick="displayDate()">点击这里</button>
+（2）利用dom分配   document.getElementById("myBtn").onclick=function(){displayDate()};
+5、添加元素
+   必须首先创建该元素（元素节点），然后向一个已存在的元素追加该元素。
+	<div id="div1">
+	<p id="p1">这是一个段落</p>
+	<p id="p2">这是另一个段落</p>
+	</div>
+	<script>
+	var para=document.createElement("p");
+	var node=document.createTextNode("这是新段落。");
+	para.appendChild(node);
+
+	var element=document.getElementById("div1");
+	element.appendChild(para);
+	</script>
+6、删除元素
+	如需删除 HTML 元素，您必须首先获得该元素的父元素：
+	<script>
+	var parent=document.getElementById("div1");
+	var child=document.getElementById("p1");
+	parent.removeChild(child);
+	</script>
+
+
+
+第三部分：JavaScript 对象
+
+
+
+1、对象
+	JavaScript 提供多个内建对象，比如 String、Date、Array 等等。对象只是带有属性和方法的特殊数据类型。
+（1）访问属性
+	var message="Hello World!";
+	var x=message.length;
+（2）访问方法
+	var message="Hello world!";
+	var x=message.toUpperCase();
+（3）创建对象
+（4）使用对象构造器
+	function person(firstname,lastname,age,eyecolor)
+	{
+	this.firstname=firstname;
+	this.lastname=lastname;
+	this.age=age;
+	this.eyecolor=eyecolor;
+	}
+	var myFather=new person("Bill","Gates",56,"blue");
+2、字符串
+	txt.length
+	txt.big(）
+	txt.small()
+	txt.italics()
+	txt.fontsize(16)
+	txt.fontcolor("Red")
+	indexOf("world")  定位字符串中某一个指定的字符首次出现的位置。
+	lastIndexOf() 返回一个指定的字符串值最后出现的位置。
+	match()  查找字符串中特定的字符，并且如果找到的话，则返回这个字符。
+	replace() 方法在字符串中用某些字符替换另一些字符。
+3、date日期
+	Date() 方法获得当日的日期。
+	getTime() 返回从 1970 年 1 月 1 日至今的毫秒数。
+	setFullYear() 设置具体的日期。 var d = new Date()  d.setFullYear(1992,10,3)
+	toUTCString() 将当日的日期（根据 UTC）转换为字符串。
+	getDay() 和数组来显示星期，而不仅仅是数字
+4、数组
+	concat() 方法来合并两个数组
+	join() 方法将数组的所有元素组成一个字符串。
+	sort() 对数组进行排序。
+5、Boolean（逻辑）对象
+	var myBoolean=new Boolean()
+	如果逻辑对象无初始值或者其值为 0、-0、null、""、false、undefined 或者 NaN，那么对象的值为 false
+6、 Math（算数）对象
+	round() 对一个数进行四舍五入。
+	random() 返回 0 到 1 之间的随机数。
+	max()  返回两个给定的数中的较大的数。
+	min()  返回两个给定的数中的较小的数 
+7、RegExp 对象 正则表达式
+	test() 方法检索字符串中的指定值。返回值是 true 或 false。
+	exec() 方法检索字符串中的指定值。返回值是被找到的值。如果没有发现匹配，则返回 null。
+	compile() 既可以改变检索模式，也可以添加或删除第二个参数
+
+
+
+第四部分  JavaScript Window - 浏览器对象模型
+
+
+
+1、window ——浏览器窗口
+	window.innerHeight  浏览器窗口的内部高度
+	window.innerWidth   浏览器窗口的内部宽度
+	window.open()       打开新窗口
+	window.close()      关闭当前窗口
+	window.moveTo()     移动当前窗口
+	window.resizeTo()   调整当前窗口的尺寸
+2、window.screen ——对象包含有关用户屏幕的信息。
+    screen.availWidth      可用的屏幕宽度
+    screen.availHeight     可用的屏幕高度
+3、window.location ——对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。
+    location.hostname     返回 web 主机的域名
+    location.pathname     返回当前页面的路径和文件名
+    location.port         返回 web 主机的端口 （80 或 443）
+    location.protocol     返回所使用的 web 协议（http:// 或 https://）
+    location.href         属性返回当前页面的 URL。
+    location.assign()     方法加载新的文档。
+4、window.history ——对象包含浏览器的历史。
+    history.back() - 与在浏览器点击后退按钮相同
+    history.forward() - 与在浏览器中点击按钮向前相同
+5、window.navigator ——对象包含有关访问者浏览器的信息
+6、 popalert消息框
+	alert("文本")            警告框
+	confirm("文本")          确认框
+	prompt("文本","默认值")  提示框 
+7、 timing计时
+	setTimeout("javascript语句",毫秒)      未来的某时执行代码
+	clearTimeout(setTimeout_variable)       取消setTimeout()
+8、Cookies
+	document.cookie="cookiename="+变量名；
+	getCookie(cookiename)
+
+	function getCookie(c_name){
+		if (document.cookie.length>0){
+  			c_start=document.cookie.indexOf(c_name + "=")
+  			if (c_start!=-1){ 
+    		c_start=c_start + c_name.length+1 
+   	 	c_end=document.cookie.indexOf(";",c_start)
+   	 	if (c_end==-1) c_end=document.cookie.length
+   	 	return unescape(document.cookie.substring(c_start,c_end))
+ 	   } 
+  	}
+	return ""
+	}
